@@ -4,6 +4,7 @@ import BBCDraggable from "@/components/BBCDraggable.vue";
 import SpotifyDraggable from "@/components/spotify/SpotifyDraggable.vue";
 import TwitterDraggable from "@/components/twitter/TwitterDraggable.vue";
 import CalendlyDraggable from "@/components/CalendlyDraggable.vue";
+import SlackWidget from "@/components/slack/SlackWidget.vue";
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import CalendlyDraggable from "@/components/CalendlyDraggable.vue";
     </p>
 
     <div class="mt-8 flex flex-col items-center">
+      <SlackWidget />
       <NytDraggable />
       <!-- <BBCDraggable /> -->
       <TwitterDraggable />

@@ -7,6 +7,7 @@ import Draggable from "../Draggable.vue";
   <div
     class="
       max-w-sm
+      drop-shadow-2xl
       rounded-xl
       bg-sky-400
       dark:bg-gray-900

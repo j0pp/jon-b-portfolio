@@ -8,6 +8,7 @@ import NytIconNew from "./icons/IconNyt.vue";
   <div
     class="
       max-w-md
+      drop-shadow-2xl
       rounded-xl
       bg-white
       dark:bg-black
@@ -31,8 +32,9 @@ import NytIconNew from "./icons/IconNyt.vue";
       <hr class="my-2" />
       <p class="font-serif text-sm">
         He has a B.S. in
-        <i>Applied and Computational Mathematical Sciences</i> and 2 years of
-        experience as a student and contract software engineer for UW-IT
+        <i>Applied and Computational Mathematical Sciences</i> from the
+        University of Washington and 2 years of experience as a student and
+        contract software engineer for UW-IT.
       </p>
     </div>
   </div>

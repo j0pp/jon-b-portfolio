@@ -7,7 +7,18 @@ import SpotifyMusicLabel from "./SpotifyMusicLabel.vue";
 
 <template>
   <!-- <Draggable :x="100" :y="350"> -->
-  <div class="max-w-xs rounded-xl bg-green-500 text-white py-2 px-4 mb-4">
+  <div
+    class="
+      max-w-xs
+      rounded-xl
+      drop-shadow-2xl
+      bg-green-500
+      text-white
+      py-2
+      px-4
+      mb-4
+    "
+  >
     <div class="flex">
       <SpotifyIcon class="ml-auto my-2" />
     </div>
@@ -17,7 +28,7 @@ import SpotifyMusicLabel from "./SpotifyMusicLabel.vue";
         bg-green-400
         w-52
         h-52
-        drop-shadow-2xl
+        drop-shadow-xl
         my-4
         mx-auto
         relative
