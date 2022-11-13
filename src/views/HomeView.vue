@@ -97,7 +97,7 @@ const cardStyle = computed(() => ({
       <h2 class="font-bold text-teal-900 dark:text-white text-xl">Resume</h2>
       <p>
         If you want a traditional resume, please click here:
-        <a href="/JonathanBeaubien_Resume.pdf" download>
+        <a href="../../public/JonathanBeaubien_Resume.pdf" download>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
