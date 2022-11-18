@@ -40,6 +40,18 @@ const toggleDark = useToggle(isDark);
           "
           >Resume</RouterLink
         >
+        <RouterLink
+          to="/projects"
+          class="
+            bg-emerald-800
+            dark:bg-emerald-800/30
+            rounded
+            p-1
+            mx-1
+            text-white
+          "
+          >Projects</RouterLink
+        >
       </nav>
       <button @click="toggleDark()" class="">
         {{ isDark ? "☀️" : "🌙" }}

@@ -65,7 +65,7 @@
           <h1 class="font-bold text-sm">
             I have experience with using Vue and React,
           </h1>
-          <p class="text-sm text-gray-600">Sarah Maison</p>
+          <p class="text-sm text-gray-600">Jonathan Beaubien</p>
         </div>
       </div>
       <hr />
@@ -78,7 +78,7 @@
           <h1 class="font-bold text-sm">
             using Tailwind and Bootstrap along with CSS,
           </h1>
-          <p class="text-sm text-gray-600">Craig Matthews</p>
+          <p class="text-sm text-gray-600">Jonathan Beaubien</p>
         </div>
       </div>
       <hr />
@@ -91,31 +91,31 @@
           <h1 class="font-bold text-sm">
             and writing unit tests in Jest and Cypress!
           </h1>
-          <p class="text-sm text-gray-600">Craig Matthews</p>
+          <p class="text-sm text-gray-600">Jonathan Beaubien</p>
         </div>
       </div>
       <hr />
       <div class="flex flex-row mb-2 mt-2">
         <img
-          src="../../assets/headshot.png"
+          src="../../assets/brie.png"
           class="rounded-full w-9 h-9 inline my-auto"
         />
         <div class="grow ml-2">
-          <h1 class="font-bold text-sm">OMG DID YOU SEE BRIAN'S NEW HAT?</h1>
-          <p class="text-sm text-gray-600">Craig Matthews</p>
+          <h1 class="font-bold text-sm">OMG DID YOU SEE BRIAN'S HAT?</h1>
+          <p class="text-sm text-gray-600">Brie</p>
         </div>
       </div>
       <hr />
       <div class="flex flex-row mb-2 mt-2">
         <img
-          src="../../assets/headshot.png"
+          src="../../assets/brian.png"
           class="rounded-full w-9 h-9 inline my-auto"
         />
         <div class="grow ml-2">
           <h1 class="font-bold text-sm">
-            I think he has dice but he's afraid to show...
+            It's illegal for you to ask me that.
           </h1>
-          <p class="text-sm text-gray-600">Craig Matthews</p>
+          <p class="text-sm text-gray-600">Brian</p>
         </div>
       </div>
     </div>

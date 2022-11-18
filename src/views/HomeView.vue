@@ -62,7 +62,10 @@ const cardStyle = computed(() => ({
 
           <p class="text-sm">
             This project was made in Vue 3 using the Spotify Web API, Express,
-            and SocketIO with a Postgres database. Read more on the projects
+            and SocketIO with a Postgres database. Read more on the
+            <RouterLink to="/projects" class="text-teal-900 font-bold"
+              >projects</RouterLink
+            >
             page.
           </p>
         </div>
@@ -88,7 +91,11 @@ const cardStyle = computed(() => ({
 
           <p class="text-sm">
             This project was a Wordle-type game using React and Tailwind CSS
-            which garnered >2,000 visitors. Read more on the projects page.
+            which garnered >2,000 visitors. Read more on the
+            <RouterLink to="/projects" class="text-teal-900 font-bold"
+              >projects</RouterLink
+            >
+            page.
           </p>
         </div>
       </div>
