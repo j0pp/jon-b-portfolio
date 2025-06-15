@@ -6,18 +6,7 @@ import NytIconNew from "./icons/IconNyt.vue";
 <template>
   <!-- <Draggable :x="100" :y="100"> -->
   <div
-    class="
-      max-w-md
-      drop-shadow-2xl
-      rounded-xl
-      bg-white
-      dark:bg-black
-      text-black
-      dark:text-white
-      py-2
-      px-4
-      mb-4
-    "
+    class="max-w-md drop-shadow-2xl rounded-xl bg-white dark:bg-black text-black dark:text-white py-2 px-4 mb-4"
   >
     <div class="mb-4">
       <h1 class="font-nytheader text-lg inline">NYT Top Stories</h1>
@@ -26,20 +15,19 @@ import NytIconNew from "./icons/IconNyt.vue";
     <div>
       <p class="text-rose-600 font-bold">LIVE</p>
       <h2 class="font-nytheader text-md">
-        Jonathan Beaubien is looking for a job in the Seattle, WA area or
-        remote!
+        Jonathan Beaubien is a full-stack software engineer with 2.5 years of
+        experience.
       </h2>
       <hr class="my-2" />
       <p class="font-serif text-sm">
         He has a B.S. in
         <i>Applied and Computational Mathematical Sciences</i> from the
-        University of Washington and 2 years of experience as a student and
-        contract software engineer for UW-IT.
+        University of Washington and experience in a fast-paced, startup
+        environment creating features on both web and native platforms.
       </p>
     </div>
   </div>
   <!-- </Draggable> -->
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

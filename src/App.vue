@@ -18,49 +18,27 @@ const toggleDark = useToggle(isDark);
       <nav>
         <RouterLink
           to="/"
-          class="
-            bg-emerald-800
-            dark:bg-emerald-800/30
-            rounded
-            p-1
-            mx-1
-            text-white
-          "
+          class="bg-emerald-800 dark:bg-emerald-800/30 rounded p-1 mx-1 text-white"
           >Home</RouterLink
         >
         <RouterLink
           to="/resume"
-          class="
-            bg-emerald-800
-            dark:bg-emerald-800/30
-            rounded
-            p-1
-            mx-1
-            text-white
-          "
+          class="bg-emerald-800 dark:bg-emerald-800/30 rounded p-1 mx-1 text-white"
           >Resume</RouterLink
         >
         <RouterLink
           to="/projects"
-          class="
-            bg-emerald-800
-            dark:bg-emerald-800/30
-            rounded
-            p-1
-            mx-1
-            text-white
-          "
+          class="bg-emerald-800 dark:bg-emerald-800/30 rounded p-1 mx-1 text-white"
           >Projects</RouterLink
         >
       </nav>
-      <button @click="toggleDark()" class="">
+      <button @click="toggleDark()" class="ml-2">
         {{ isDark ? "☀️" : "🌙" }}
       </button>
     </div>
   </header>
 
-  <RouterView class="text-teal-700 dark:text-gray-400" />
+  <RouterView class="text-teal-700 dark:text-gray-400 my-10" />
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

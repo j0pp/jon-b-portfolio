@@ -1,52 +1,33 @@
 <script setup lang="ts">
-import { ref, reactive, computed } from "vue";
 import IconDJD from "../components/icons/IconDJD.vue";
 import IconTrio from "../components/icons/IconTrio.vue";
-import type { CSSProperties } from "vue";
-import { useParallax } from "@vueuse/core";
-
-const container = ref(null);
-const parallax = reactive(useParallax(container));
-
-const layer0 = computed(() => ({
-  transition: ".3s ease-out all",
-  transform: `translateX(${parallax.tilt * 20}px) translateY(${
-    parallax.roll * 20
-  }px)`,
-}));
-
-const cardStyle = computed(() => ({
-  background: "#000",
-  height: "30rem",
-  width: "25rem",
-  borderRadius: "5px",
-  overflow: "hidden",
-  transition: ".3s ease-out all",
-  boxShadow: "0 0 20px 0 rgba(0, 0, 0, 0.25)",
-  transform: `rotateX(${parallax.roll * 60}deg) rotateY(${
-    parallax.tilt * 60
-  }deg)`,
-}));
 </script>
 
 <template>
-  <div class="font-mono flex flex-col items-center" ref="container">
-    <div class="max-w-lg mx-4 mb-4">
-      <h2 class="font-bold text-teal-900 dark:text-white text-xl">Hey!</h2>
-      <p class="">
+  <div class="font-mono flex flex-col items-center gap-10" ref="container">
+    <div class="max-w-lg mx-4">
+      <h2 class="font-bold text-teal-900 dark:text-white text-xl">Hey! 👋</h2>
+      <p class="mt-4">
         My name is Jonathan Beaubien and I am a full-stack developer based in
-        Seattle, WA.
+        <span class="font-bold">Brooklyn, NY</span>. I grew up in Seattle, WA
+        and graduated from the
+        <span class="font-bold">University of Washington</span> in 2022.
       </p>
     </div>
-    <div class="max-w-lg mx-4 mb-4">
-      <h2 class="font-bold text-teal-900 dark:text-white text-xl">Projects</h2>
-      <p>These are some of my side projects that I have worked on.</p>
-      <div class="mt-8 flex">
-        <IconDJD class="w-20 h-20 text-teal-900" />
-        <div class="ml-2">
-          <p class="text-teal-900 font-bold dark:text-white">
-            DJ Democracy
-            <a href="https://djdemocracy.com" target="_blank">
+
+    <div class="max-w-lg mx-4">
+      <h2 class="font-bold text-teal-900 dark:text-white text-xl">
+        Experience
+      </h2>
+      <section>
+        <div class="flex justify-between mt-4">
+          <h3 class="font-bold text-teal-900 dark:text-white text-lg">
+            Posh
+            <a
+              href="https://posh.vip"
+              target="_blank"
+              class="hover:text-white dark:hover:text-teal-900"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
@@ -58,24 +39,65 @@ const cardStyle = computed(() => ({
                 />
               </svg>
             </a>
-          </p>
-
-          <p class="text-sm">
-            This project was made in Vue 3 using the Spotify Web API, Express,
-            and SocketIO with a Postgres database. Read more on the
-            <RouterLink to="/projects" class="text-teal-900 font-bold"
-              >projects</RouterLink
-            >
-            page.
+          </h3>
+          <p>February 2023 - Present</p>
+        </div>
+        <div>
+          <p>
+            Posh is a platform that helps people create and discover real-world
+            events, making it easier for communities to come together offline. I
+            joined as the sixth employee and an early full-stack engineer,
+            building features across our web and mobile apps using React, React
+            Native, TypeScript, and Next.js.
           </p>
         </div>
-      </div>
-      <div class="mt-8 flex">
+        <div class="flex justify-between mt-8">
+          <h3 class="font-bold text-teal-900 dark:text-white text-lg">
+            UW-IT
+            <a
+              href="https://it.uw.edu"
+              target="_blank"
+              class="hover:text-white dark:hover:text-teal-700"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+                fill="currentColor"
+                class="w-4 mb-1 inline hover:text-sky-600"
+              >
+                <path
+                  d="M288 32c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L306.7 128 169.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L352 173.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V64c0-17.7-14.3-32-32-32H288zM80 64C35.8 64 0 99.8 0 144V400c0 44.2 35.8 80 80 80H336c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v80c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V144c0-8.8 7.2-16 16-16h80c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"
+                />
+              </svg>
+            </a>
+          </h3>
+          <p>July 2020 - September 2022</p>
+        </div>
+        <div>
+          <p>
+            I worked at UW-IT as a student and contract full-stack developer on
+            the Academic Experience Design and Delivery (AXDD) team during my
+            time at the University of Washington. I built and maintained tools
+            used by thousands of students and faculty, helped modernize legacy
+            systems with VueJS, and improved performance by adding asynchronous
+            background tasks, and updated CI/CD workflows with Docker.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <div class="max-w-lg mx-4">
+      <h2 class="font-bold text-teal-900 dark:text-white text-xl">Projects</h2>
+
+      <div class="mt-4 flex">
         <IconTrio class="w-20 h-20 text-teal-900" />
         <div class="ml-2">
           <p class="text-teal-900 font-bold dark:text-white">
             Word Trio
-            <a href="https://wordtrio.com" target="_blank">
+            <a
+              href="https://636876cdc2c0040008d80bcf--word-trio.netlify.app/game"
+              target="_blank"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
@@ -91,7 +113,18 @@ const cardStyle = computed(() => ({
 
           <p class="text-sm">
             This project was a Wordle-type game using React and Tailwind CSS
-            which garnered >2,000 visitors. Read more on the
+            which garnered >2,000 visitors.
+          </p>
+        </div>
+      </div>
+      <div class="mt-4 flex">
+        <IconDJD class="w-20 h-20 text-teal-900" />
+        <div class="ml-2">
+          <p class="text-teal-900 font-bold dark:text-white">DJ Democracy</p>
+
+          <p class="text-sm">
+            This project was made in Vue 3 using the Spotify Web API, Express,
+            and SocketIO with a Postgres database. See a video on the
             <RouterLink to="/projects" class="text-teal-900 font-bold"
               >projects</RouterLink
             >

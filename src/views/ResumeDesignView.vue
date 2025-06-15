@@ -11,9 +11,8 @@ import ClockWidget from "@/components/ClockWidget.vue";
 <template>
   <div class="container mx-auto font-mono" ref="container">
     <p class="mx-auto max-w-md text-center px-3">
-      This is a version of my resume that I made by imitating popular tech
-      products. I am in no way associated with these companies, however. My
-      traditional resume is here:
+      I am in no way associated with these companies. My traditional resume is
+      here:
       <a href="/JonathanBeaubien_Resume.pdf" download>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +33,7 @@ import ClockWidget from "@/components/ClockWidget.vue";
       <SlackWidget />
       <!-- <BBCDraggable /> -->
       <TwitterDraggable />
-      <SpotifyDraggable />
+      <!-- <SpotifyDraggable /> -->
     </div>
   </div>
 </template>
