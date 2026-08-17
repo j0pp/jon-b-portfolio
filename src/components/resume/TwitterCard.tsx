@@ -12,8 +12,9 @@ export default function TwitterCard() {
 
   return (
     <div className="w-72 rounded-xl border border-sky-500 bg-sky-400 px-4 py-3 text-slate-50 shadow-xl sm:w-80 dark:border-zinc-800 dark:bg-gray-900">
-      <h3 className="mb-2 text-sm dark:text-sky-500">
-        <span className="text-xl font-bold">#</span> {heading}
+      <h3 className="mb-2 flex items-center gap-1.5 text-sm dark:text-sky-500">
+        <span className="text-xl font-bold">#</span>
+        <span>{heading}</span>
       </h3>
       <div className="mb-2 flex items-center gap-2">
         <img src={avatar} alt={author} className="h-12 w-12 rounded-full" />

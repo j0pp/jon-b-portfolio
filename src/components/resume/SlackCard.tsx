@@ -2,7 +2,8 @@
 import { resumeCards } from "@/data/content";
 
 export default function SlackCard() {
-  const { channel, unread, messages } = resumeCards.slack;
+  const { channel, messages } = resumeCards.slack;
+  const unread = messages.length;
   return (
     <div className="w-80 rounded-xl border border-zinc-200 bg-stone-50 text-zinc-900 shadow-xl sm:w-96 dark:border-zinc-800 dark:bg-black dark:text-zinc-100">
       <div className="flex h-9 items-center rounded-t-xl bg-zinc-200 px-2 dark:bg-zinc-900">

@@ -11,7 +11,7 @@ export default function CardCollage() {
         <div className="sm:w-fit sm:-rotate-2">
           <NytCard />
         </div>
-        <div className="sm:-mt-10 sm:ml-auto sm:w-fit sm:rotate-1">
+        <div className="relative z-10 sm:-mt-10 sm:ml-auto sm:w-fit sm:rotate-1">
           <SlackCard />
         </div>
         <div className="sm:-mt-8 sm:ml-16 sm:w-fit sm:-rotate-1">

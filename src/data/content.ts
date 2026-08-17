@@ -23,7 +23,6 @@ export const bio = {
   greeting: "Hey! 👋",
   paragraphs: [
     "My name is Jonathan Beaubien and I'm a senior full-stack engineer based in Brooklyn, NY. I build consumer products end-to-end — web, mobile, and the infrastructure behind them.",
-    "I grew up in Seattle, WA and graduated from the University of Washington in 2022 with a B.S. in Applied & Computational Mathematical Sciences.",
   ],
 };
 
@@ -127,6 +126,8 @@ export type Project = {
   description: string;
   icon: "riff" | "trio" | "djd";
   video?: string;
+  /** Screenshot of the live landing page, shown as a browser-style preview. */
+  preview?: string;
 };
 
 export const projects: Project[] = [
@@ -134,20 +135,21 @@ export const projects: Project[] = [
     name: "Riff",
     url: "https://playriff.tv",
     description:
-      "A Jackbox-style party game for the browser — a laptop or TV becomes the shared stream screen and everyone joins from their phones by scanning a QR code. Real-time multiplayer built with React and TypeScript on Cloudflare Durable Objects, with typed WebSocket commands and a single server-authoritative game state.",
+      "A Jackbox-style party game: your TV is the shared screen and everyone plays from their phones. React + TypeScript on Cloudflare Durable Objects.",
     icon: "riff",
+    preview: "/images/projects/riff.png",
   },
   {
     name: "Word Trio",
     url: "https://636876cdc2c0040008d80bcf--word-trio.netlify.app/game",
     description:
-      "A Wordle-style word game built with React and Tailwind CSS that garnered over 2,000 visitors.",
+      "A Wordle-style word game and one of my first React projects, built way back in 2022. Over 2,000 people played it. It's showing its age, but it's still up.",
     icon: "trio",
   },
   {
     name: "DJ Democracy",
     description:
-      "Collaborative queueing for parties — built with Vue 3, the Spotify Web API, Express, and Socket.IO on Postgres. See the video demo on the projects page.",
+      "Collaborative queueing for parties — built with Vue 3, the Spotify Web API, Express, and Socket.IO on Postgres.",
     icon: "djd",
     video: "/videos/dj-democracy.mp4",
   },
@@ -155,8 +157,7 @@ export const projects: Project[] = [
 
 /** Copy for the fake-brand widget cards on the /resume page. */
 export const resumeCards = {
-  disclaimer:
-    "My resume, remixed. (I am in no way associated with these companies.)",
+  disclaimer: "I am in no way associated with these companies.",
   nyt: {
     masthead: "NYT Top Stories",
     kicker: "LIVE",
@@ -166,11 +167,11 @@ export const resumeCards = {
   },
   slack: {
     channel: "Latest",
-    unread: 5,
     messages: [
-      { text: "I have experience using Next.js and React,", author: "Jonathan Beaubien", avatar: "/images/headshot.png" },
+      { text: "I have experience using TypeScript, Next.js, and React,", author: "Jonathan Beaubien", avatar: "/images/headshot.png" },
+      { text: "building mobile apps with React Native,", author: "Jonathan Beaubien", avatar: "/images/headshot.png" },
       { text: "developing backends in tRPC and NestJS,", author: "Jonathan Beaubien", avatar: "/images/headshot.png" },
-      { text: "and using AWS, Terraform, and MongoDB.", author: "Jonathan Beaubien", avatar: "/images/headshot.png" },
+      { text: "and using AWS and MongoDB.", author: "Jonathan Beaubien", avatar: "/images/headshot.png" },
       { text: "OMG DID YOU SEE BRIAN'S HAT?", author: "Brie", avatar: "/images/brie.png" },
       { text: "It's illegal for you to ask me that.", author: "Brian", avatar: "/images/brian.png" },
     ],
@@ -181,7 +182,7 @@ export const resumeCards = {
     handle: "@jon",
     avatar: "/images/headshot.png",
     tweet:
-      "If you find yourself setting z-index: 999,999, it's time to rethink your life choices.",
+      "riff on your favorite inside jokes — riff is a party game for 3–8 players where everyone joins on their phone, built on Cloudflare Durable Objects. playriff.tv",
     retweets: "102",
     likes: "5k",
   },
