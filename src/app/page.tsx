@@ -99,6 +99,19 @@ export default function HomePage() {
         </div>
       </Section>
 
+      <Section title="Skills">
+        <dl className="flex flex-col gap-3 text-sm">
+          {skills.map(({ group, items }) => (
+            <div key={group} className="sm:flex sm:gap-4">
+              <dt className="shrink-0 font-medium text-zinc-900 sm:w-44 dark:text-zinc-100">
+                {group}
+              </dt>
+              <dd className="leading-relaxed">{items.join(", ")}</dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
+
       <Section title="Projects">
         <div className="flex flex-col gap-8">
           {projects.map((project) => {
@@ -133,19 +146,6 @@ export default function HomePage() {
             );
           })}
         </div>
-      </Section>
-
-      <Section title="Skills">
-        <dl className="flex flex-col gap-3 text-sm">
-          {skills.map(({ group, items }) => (
-            <div key={group} className="sm:flex sm:gap-4">
-              <dt className="shrink-0 font-medium text-zinc-900 sm:w-44 dark:text-zinc-100">
-                {group}
-              </dt>
-              <dd className="leading-relaxed">{items.join(", ")}</dd>
-            </div>
-          ))}
-        </dl>
       </Section>
 
       <Section title="Resume">
