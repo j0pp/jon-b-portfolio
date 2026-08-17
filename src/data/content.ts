@@ -161,9 +161,8 @@ export const projects: Project[] = [
   },
 ];
 
-/** Copy for the fake-brand widget cards on the /resume page. */
+/** Copy for the fake-brand widget cards on the home page. */
 export const resumeCards = {
-  disclaimer: "I am in no way associated with these companies.",
   nyt: {
     masthead: "NYT Top Stories",
     kicker: "LIVE",
