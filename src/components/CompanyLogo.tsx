@@ -3,28 +3,32 @@ import { UWBlockWIcon } from "@/components/icons";
 
 export type CompanyLogoId = "posh" | "uw";
 
-/** Small brand mark rendered beside a company name in the Experience list. */
+/**
+ * LinkedIn/Spotlight-style logo chip shown at the left of an Experience
+ * entry: a small rounded container with a subtle ring holding the mark.
+ */
 export default function CompanyLogo({ logo }: { logo: CompanyLogoId }) {
-  if (logo === "uw") {
-    return (
-      <UWBlockWIcon
-        aria-hidden
-        className="inline-block h-6 w-auto text-[#4b2e83] dark:text-white"
-      />
-    );
-  }
   return (
-    <span aria-hidden>
-      <img
-        src="/images/logos/posh-black.png"
-        alt=""
-        className="inline-block h-6 w-auto dark:hidden"
-      />
-      <img
-        src="/images/logos/posh-white.png"
-        alt=""
-        className="hidden h-6 w-auto dark:inline-block"
-      />
-    </span>
+    <div
+      aria-hidden
+      className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-white shadow-md ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0"
+    >
+      {logo === "uw" ? (
+        <UWBlockWIcon className="h-5 w-auto text-[#4b2e83] dark:text-white" />
+      ) : (
+        <>
+          <img
+            src="/images/logos/posh-black.png"
+            alt=""
+            className="w-8 dark:hidden"
+          />
+          <img
+            src="/images/logos/posh-white.png"
+            alt=""
+            className="hidden w-8 dark:block"
+          />
+        </>
+      )}
+    </div>
   );
 }

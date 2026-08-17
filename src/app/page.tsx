@@ -58,36 +58,38 @@ export default function HomePage() {
       <Section title="Experience">
         <div className="flex flex-col gap-14">
           {experience.map((job) => (
-            <div key={job.company}>
-              <h3 className="flex items-center justify-between gap-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-                {job.url ? (
-                  <ExternalLink href={job.url} className="!text-inherit hover:!text-teal-700 dark:hover:!text-teal-400">
-                    {job.company}
-                  </ExternalLink>
-                ) : (
-                  job.company
+            <div key={job.company} className="flex gap-4">
+              {job.logo && <CompanyLogo logo={job.logo} />}
+              <div className="flex-1">
+                <h3 className="flex items-center pt-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                  {job.url ? (
+                    <ExternalLink href={job.url} className="!text-inherit hover:!text-teal-700 dark:hover:!text-teal-400">
+                      {job.company}
+                    </ExternalLink>
+                  ) : (
+                    job.company
+                  )}
+                </h3>
+                {job.blurb && (
+                  <p className="mt-3 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+                    {job.blurb}
+                  </p>
                 )}
-                {job.logo && <CompanyLogo logo={job.logo} />}
-              </h3>
-              {job.blurb && (
-                <p className="mt-3 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-                  {job.blurb}
-                </p>
-              )}
-              <div className="mt-6 flex flex-col gap-4">
-                {job.roles.map((role) => (
-                  <div
-                    key={role.title}
-                    className="flex flex-wrap items-baseline justify-between gap-x-4"
-                  >
-                    <h4 className="font-medium text-zinc-900 dark:text-zinc-100">
-                      {role.title}
-                    </h4>
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                      {role.start} – {role.end}
-                    </p>
-                  </div>
-                ))}
+                <div className="mt-6 flex flex-col gap-4">
+                  {job.roles.map((role) => (
+                    <div
+                      key={role.title}
+                      className="flex flex-wrap items-baseline justify-between gap-x-4"
+                    >
+                      <h4 className="font-medium text-zinc-900 dark:text-zinc-100">
+                        {role.title}
+                      </h4>
+                      <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                        {role.start} – {role.end}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
