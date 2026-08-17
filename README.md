@@ -1,46 +1,32 @@
-# portfolio
+# jonbeaubien.dev
 
-This template should help get you started developing with Vue 3 in Vite.
+Personal portfolio site for Jonathan Beaubien, built with [Next.js](https://nextjs.org) (App Router), React, TypeScript, and Tailwind CSS v4. All pages are statically generated so crawlers get full HTML. Deployed on Netlify — pushes to `main` auto-deploy.
 
-## Recommended IDE Setup
+## Editing content
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+All site copy (bio, experience, projects, skills, resume widgets, SEO metadata) lives in one file: [`src/data/content.ts`](src/data/content.ts). Edit it and every page picks up the change.
 
-## Type Support for `.vue` Imports in TS
+The traditional resume PDF is served from `public/JonathanBeaubien_Resume.pdf` — replace that file to update the download.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## Development
 
 ```sh
 npm install
+npm run dev      # http://localhost:3000
 ```
 
-### Compile and Hot-Reload for Development
+## Other commands
 
 ```sh
-npm run dev
+npm run build    # production build (also proves all routes are static)
+npm run start    # serve the production build
+npm run lint     # eslint
 ```
 
-### Type-Check, Compile and Minify for Production
+## Structure
 
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- `src/app/` — routes (`/`, `/projects`, `/resume`), layout, `sitemap.ts`, `robots.ts`
+- `src/components/` — UI components; `resume/` holds the draggable widget cards
+- `src/hooks/useDraggable.ts` — pointer-events drag hook for the resume cards
+- `src/data/content.ts` — all site copy
+- `public/` — resume PDF, images, fonts, video
