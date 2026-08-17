@@ -61,7 +61,7 @@ export default function HomePage() {
             <div key={job.company} className="flex gap-4">
               {job.logo && <CompanyLogo logo={job.logo} />}
               <div className="flex-1">
-                <h3 className="flex items-center pt-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                <h3 className="flex items-center text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                   {job.url ? (
                     <ExternalLink href={job.url} className="!text-inherit hover:!text-teal-700 dark:hover:!text-teal-400">
                       {job.company}
