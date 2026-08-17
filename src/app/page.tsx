@@ -1,10 +1,12 @@
 import Link from "next/link";
 import Section from "@/components/Section";
 import ExternalLink from "@/components/ExternalLink";
-import { DownloadIcon, DJDIcon, TrioIcon } from "@/components/icons";
+import CardCollage from "@/components/resume/CardCollage";
+import { DownloadIcon, DJDIcon, RiffIcon, TrioIcon } from "@/components/icons";
 import { bio, education, experience, projects, site, skills } from "@/data/content";
 
 const projectIcons = {
+  riff: RiffIcon,
   trio: TrioIcon,
   djd: DJDIcon,
 };
@@ -49,6 +51,8 @@ export default function HomePage() {
         ))}
       </section>
 
+      <CardCollage />
+
       <Section title="Experience">
         <div className="flex flex-col gap-10">
           {experience.map((job) => (
@@ -67,22 +71,18 @@ export default function HomePage() {
                   {job.blurb}
                 </p>
               )}
-              <div className="mt-4 flex flex-col gap-6">
+              <div className="mt-4 flex flex-col gap-3">
                 {job.roles.map((role) => (
-                  <div key={role.title}>
-                    <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-                      <h4 className="font-medium text-zinc-900 dark:text-zinc-100">
-                        {role.title}
-                      </h4>
-                      <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                        {role.start} – {role.end}
-                      </p>
-                    </div>
-                    <ul className="mt-2 flex list-disc flex-col gap-2 pl-5 text-sm leading-relaxed marker:text-zinc-300 dark:marker:text-zinc-600">
-                      {role.highlights.map((highlight) => (
-                        <li key={highlight}>{highlight}</li>
-                      ))}
-                    </ul>
+                  <div
+                    key={role.title}
+                    className="flex flex-wrap items-baseline justify-between gap-x-4"
+                  >
+                    <h4 className="font-medium text-zinc-900 dark:text-zinc-100">
+                      {role.title}
+                    </h4>
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                      {role.start} – {role.end}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -141,23 +141,16 @@ export default function HomePage() {
 
       <Section title="Resume">
         <p className="leading-relaxed">
-          Grab a{" "}
+          Want the traditional version? Grab the{" "}
           <a
             href={site.resumePdf}
             download
             className="inline-flex items-center gap-1 text-teal-700 hover:text-teal-500 dark:text-teal-400 dark:hover:text-teal-300"
           >
-            traditional PDF
+            PDF
             <DownloadIcon className="h-3.5 w-3.5" />
-          </a>{" "}
-          — or head to the{" "}
-          <Link
-            href="/resume"
-            className="text-teal-700 hover:text-teal-500 dark:text-teal-400 dark:hover:text-teal-300"
-          >
-            resume page
-          </Link>{" "}
-          for something more special.
+          </a>
+          .
         </p>
       </Section>
     </>

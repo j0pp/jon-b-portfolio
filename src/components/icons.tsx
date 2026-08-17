@@ -50,6 +50,14 @@ export function TrioIcon(props: IconProps) {
   );
 }
 
+export function RiffIcon(props: IconProps) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" {...props}>
+      <path d="M0 12V4a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4Zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5Z" />
+    </svg>
+  );
+}
+
 export function DJDIcon(props: IconProps) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" {...props}>
