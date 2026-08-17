@@ -63,9 +63,13 @@ export default function HomePage() {
               <div className="flex-1">
                 <h3 className="flex items-center text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                   {job.url ? (
-                    <ExternalLink href={job.url} className="!text-inherit hover:!text-teal-700 dark:hover:!text-teal-400">
+                    <PreviewLink
+                      href={job.url}
+                      alt={`${job.company} website`}
+                      className="!text-inherit hover:!text-teal-700 dark:hover:!text-teal-400"
+                    >
                       {job.company}
-                    </ExternalLink>
+                    </PreviewLink>
                   ) : (
                     job.company
                   )}
