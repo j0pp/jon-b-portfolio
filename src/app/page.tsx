@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Section from "@/components/Section";
 import ExternalLink from "@/components/ExternalLink";
-import BrowserPreview from "@/components/BrowserPreview";
 import CardCollage from "@/components/resume/CardCollage";
+import PreviewLink from "@/components/PreviewLink";
 import { DownloadIcon, DJDIcon, RiffIcon, TrioIcon } from "@/components/icons";
 import { bio, education, experience, projects, site, skills } from "@/data/content";
 
@@ -97,21 +97,20 @@ export default function HomePage() {
           {projects.map((project) => {
             const Icon = projectIcons[project.icon];
             return (
-              <div key={project.name} className="group relative flex gap-4">
-                {project.preview && project.url && (
-                  <div className="pointer-events-none invisible absolute bottom-full left-0 z-20 mb-2 w-80 opacity-0 transition-opacity duration-200 sm:group-hover:visible sm:group-hover:opacity-100">
-                    <BrowserPreview
-                      url={project.url}
-                      poster={project.preview}
-                      alt={`${project.name} landing page`}
-                      zoom={4}
-                    />
-                  </div>
-                )}
+              <div key={project.name} className="flex gap-4">
                 <Icon className="h-10 w-10 shrink-0 text-teal-700 dark:text-teal-400" />
                 <div>
                   <h3 className="font-medium text-zinc-900 dark:text-zinc-100">
-                    {project.url ? (
+                    {project.url && project.livePreview ? (
+                      <PreviewLink
+                        href={project.url}
+                        poster={project.preview}
+                        alt={`${project.name} landing page`}
+                        className="!text-inherit hover:!text-teal-700 dark:hover:!text-teal-400"
+                      >
+                        {project.name}
+                      </PreviewLink>
+                    ) : project.url ? (
                       <ExternalLink href={project.url} className="!text-inherit hover:!text-teal-700 dark:hover:!text-teal-400">
                         {project.name}
                       </ExternalLink>

@@ -20,7 +20,8 @@ export default function BrowserPreview({
   poster?: string;
   zoom?: number;
 }) {
-  const host = new URL(url).host;
+  // Strip Netlify deploy-permalink hashes (e.g. "636876cd...--site.netlify.app").
+  const host = new URL(url).host.replace(/^[0-9a-f]{24}--/, "");
   return (
     <div className="overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-xl dark:border-zinc-700 dark:bg-zinc-900">
       <div className="flex items-center gap-1.5 border-b border-zinc-200 bg-zinc-100 px-3 py-1.5 dark:border-zinc-700 dark:bg-zinc-800">

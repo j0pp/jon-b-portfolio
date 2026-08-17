@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Section from "@/components/Section";
 import ExternalLink from "@/components/ExternalLink";
-import BrowserPreview from "@/components/BrowserPreview";
+import PreviewLink from "@/components/PreviewLink";
 import { projects } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -21,24 +21,18 @@ export default function ProjectsPage() {
         <Section key={project.name} title={project.name}>
           <p className="leading-relaxed">
             {project.description}{" "}
-            {project.url && (
-              <ExternalLink href={project.url}>Try it out</ExternalLink>
-            )}
-          </p>
-          {project.preview && project.url && (
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 block transition-transform duration-200 hover:-translate-y-0.5"
-            >
-              <BrowserPreview
-                url={project.url}
+            {project.url && project.livePreview ? (
+              <PreviewLink
+                href={project.url}
                 poster={project.preview}
                 alt={`${project.name} landing page`}
-              />
-            </a>
-          )}
+              >
+                Try it out
+              </PreviewLink>
+            ) : project.url ? (
+              <ExternalLink href={project.url}>Try it out</ExternalLink>
+            ) : null}
+          </p>
           {project.video && (
             <video
               controls

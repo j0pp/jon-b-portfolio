@@ -126,10 +126,9 @@ export type Project = {
   description: string;
   icon: "riff" | "trio" | "djd";
   video?: string;
-  /**
-   * Enables the live browser-style preview (an iframe of `url`). The value
-   * is a poster screenshot shown only while the live page loads.
-   */
+  /** Show a live browser-style preview (an iframe of `url`) when hovering the project link. */
+  livePreview?: boolean;
+  /** Optional poster screenshot shown only while the live preview loads. */
   preview?: string;
 };
 
@@ -140,6 +139,7 @@ export const projects: Project[] = [
     description:
       "A Jackbox-style party game: your TV is the shared screen and everyone plays from their phones. React + TypeScript on Cloudflare Durable Objects.",
     icon: "riff",
+    livePreview: true,
     preview: "/images/projects/riff.png",
   },
   {
@@ -148,6 +148,7 @@ export const projects: Project[] = [
     description:
       "A Wordle-style word game and one of my first React projects, built way back in 2022. Over 2,000 people played it. It's showing its age, but it's still up.",
     icon: "trio",
+    livePreview: true,
   },
   {
     name: "DJ Democracy",
