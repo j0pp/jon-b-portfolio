@@ -25,8 +25,7 @@ npm run lint     # eslint
 
 ## Structure
 
-- `src/app/` — routes (`/`, `/projects`, `/resume`), layout, `sitemap.ts`, `robots.ts`
-- `src/components/` — UI components; `resume/` holds the draggable widget cards
-- `src/hooks/useDraggable.ts` — pointer-events drag hook for the resume cards
+- `src/app/` — routes (`/`, `/projects`), layout, `sitemap.ts`, `robots.ts`
+- `src/components/` — UI components; `resume/` holds the fake-brand resume cards shown on the home page
 - `src/data/content.ts` — all site copy
 - `public/` — resume PDF, images, fonts, video

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Section from "@/components/Section";
 import ExternalLink from "@/components/ExternalLink";
+import PreviewLink from "@/components/PreviewLink";
 import { projects } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -20,9 +21,17 @@ export default function ProjectsPage() {
         <Section key={project.name} title={project.name}>
           <p className="leading-relaxed">
             {project.description}{" "}
-            {project.url && (
+            {project.url && project.livePreview ? (
+              <PreviewLink
+                href={project.url}
+                poster={project.preview}
+                alt={`${project.name} landing page`}
+              >
+                Try it out
+              </PreviewLink>
+            ) : project.url ? (
               <ExternalLink href={project.url}>Try it out</ExternalLink>
-            )}
+            ) : null}
           </p>
           {project.video && (
             <video

@@ -8,7 +8,6 @@ import { site } from "@/data/content";
 const links = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
-  { href: "/resume", label: "Resume" },
 ];
 
 export default function Header() {
