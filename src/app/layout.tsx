@@ -41,7 +41,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         >
           <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-6">
             <Header />
-            <main className="grow py-10">{children}</main>
+            <main className="grow py-12">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>

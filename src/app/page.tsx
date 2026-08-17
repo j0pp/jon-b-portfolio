@@ -56,7 +56,7 @@ export default function HomePage() {
       <CardCollage />
 
       <Section title="Experience">
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-14">
           {experience.map((job) => (
             <div key={job.company}>
               <h3 className="flex items-center justify-between gap-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
@@ -70,11 +70,11 @@ export default function HomePage() {
                 {job.logo && <CompanyLogo logo={job.logo} />}
               </h3>
               {job.blurb && (
-                <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+                <p className="mt-3 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
                   {job.blurb}
                 </p>
               )}
-              <div className="mt-4 flex flex-col gap-3">
+              <div className="mt-6 flex flex-col gap-4">
                 {job.roles.map((role) => (
                   <div
                     key={role.title}
@@ -95,7 +95,7 @@ export default function HomePage() {
       </Section>
 
       <Section title="Projects">
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-8">
           {projects.map((project) => {
             const Icon = projectIcons[project.icon];
             return (
