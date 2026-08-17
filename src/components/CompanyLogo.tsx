@@ -9,7 +9,7 @@ export default function CompanyLogo({ logo }: { logo: CompanyLogoId }) {
     return (
       <UWBlockWIcon
         aria-hidden
-        className="inline-block h-4 w-auto text-[#4b2e83] dark:text-white"
+        className="inline-block h-6 w-auto text-[#4b2e83] dark:text-white"
       />
     );
   }
@@ -18,12 +18,12 @@ export default function CompanyLogo({ logo }: { logo: CompanyLogoId }) {
       <img
         src="/images/logos/posh-black.png"
         alt=""
-        className="inline-block h-4 w-auto dark:hidden"
+        className="inline-block h-6 w-auto dark:hidden"
       />
       <img
         src="/images/logos/posh-white.png"
         alt=""
-        className="hidden h-4 w-auto dark:inline-block"
+        className="hidden h-6 w-auto dark:inline-block"
       />
     </span>
   );

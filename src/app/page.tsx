@@ -59,8 +59,7 @@ export default function HomePage() {
         <div className="flex flex-col gap-10">
           {experience.map((job) => (
             <div key={job.company}>
-              <h3 className="flex items-center gap-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-                {job.logo && <CompanyLogo logo={job.logo} />}
+              <h3 className="flex items-center justify-between gap-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                 {job.url ? (
                   <ExternalLink href={job.url} className="!text-inherit hover:!text-teal-700 dark:hover:!text-teal-400">
                     {job.company}
@@ -68,6 +67,7 @@ export default function HomePage() {
                 ) : (
                   job.company
                 )}
+                {job.logo && <CompanyLogo logo={job.logo} />}
               </h3>
               {job.blurb && (
                 <p className="mt-2 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
