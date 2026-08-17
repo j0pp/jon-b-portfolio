@@ -101,9 +101,10 @@ export default function HomePage() {
                 {project.preview && project.url && (
                   <div className="pointer-events-none invisible absolute bottom-full left-0 z-20 mb-2 w-80 opacity-0 transition-opacity duration-200 sm:group-hover:visible sm:group-hover:opacity-100">
                     <BrowserPreview
-                      src={project.preview}
                       url={project.url}
+                      poster={project.preview}
                       alt={`${project.name} landing page`}
+                      zoom={4}
                     />
                   </div>
                 )}

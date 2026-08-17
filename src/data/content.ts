@@ -126,7 +126,10 @@ export type Project = {
   description: string;
   icon: "riff" | "trio" | "djd";
   video?: string;
-  /** Screenshot of the live landing page, shown as a browser-style preview. */
+  /**
+   * Enables the live browser-style preview (an iframe of `url`). The value
+   * is a poster screenshot shown only while the live page loads.
+   */
   preview?: string;
 };
 

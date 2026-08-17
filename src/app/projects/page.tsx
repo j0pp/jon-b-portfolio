@@ -33,8 +33,8 @@ export default function ProjectsPage() {
               className="mt-4 block transition-transform duration-200 hover:-translate-y-0.5"
             >
               <BrowserPreview
-                src={project.preview}
                 url={project.url}
+                poster={project.preview}
                 alt={`${project.name} landing page`}
               />
             </a>

@@ -1,14 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 
-/** A screenshot framed in minimal browser chrome, like a tab-hover preview. */
+/**
+ * A live, miniaturized embed of the target site framed in minimal browser
+ * chrome, like a tab-hover preview. The real page renders in an iframe
+ * sized to `zoom`× the container and scaled back down by 1/`zoom`, so the
+ * preview is always current — no screenshots to maintain. An optional
+ * poster image shows underneath while the iframe loads.
+ *
+ * Pick `zoom` so container-width × zoom ≈ 1280 (a desktop viewport).
+ */
 export default function BrowserPreview({
-  src,
   url,
   alt,
+  poster,
+  zoom = 2,
 }: {
-  src: string;
   url: string;
   alt: string;
+  poster?: string;
+  zoom?: number;
 }) {
   const host = new URL(url).host;
   return (
@@ -21,7 +31,29 @@ export default function BrowserPreview({
           {host}
         </span>
       </div>
-      <img src={src} alt={alt} className="w-full" />
+      <div className="relative w-full overflow-hidden bg-zinc-50 aspect-[16/10] dark:bg-zinc-800">
+        {poster && (
+          <img
+            src={poster}
+            alt={alt}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        )}
+        <iframe
+          src={url}
+          title={alt}
+          loading="lazy"
+          tabIndex={-1}
+          aria-hidden
+          scrolling="no"
+          className="pointer-events-none absolute top-0 left-0 origin-top-left select-none border-0"
+          style={{
+            width: `${zoom * 100}%`,
+            height: `${zoom * 100}%`,
+            transform: `scale(${1 / zoom})`,
+          }}
+        />
+      </div>
     </div>
   );
 }
