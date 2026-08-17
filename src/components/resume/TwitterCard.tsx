@@ -10,6 +10,9 @@ export default function TwitterCard() {
     resumeCards.twitter;
   const [isLiked, setIsLiked] = useState(false);
 
+  // Linkify bare domains/URLs in the tweet text (e.g. "playriff.tv").
+  const tweetParts = tweet.split(/(\bhttps?:\/\/\S+|\b[\w-]+(?:\.[\w-]+)*\.[a-z]{2,}(?:\/\S*)?)/gi);
+
   return (
     <div className="w-72 rounded-xl border border-sky-500 bg-sky-400 px-4 py-3 text-slate-50 shadow-xl sm:w-80 dark:border-zinc-800 dark:bg-gray-900">
       <h3 className="mb-2 flex items-center gap-1.5 text-sm dark:text-sky-500">
@@ -23,7 +26,23 @@ export default function TwitterCard() {
           <p className="text-sm text-sky-100 dark:text-zinc-400">{handle}</p>
         </div>
       </div>
-      <p className="mb-3">{tweet}</p>
+      <p className="mb-3">
+        {tweetParts.map((part, i) =>
+          i % 2 === 1 ? (
+            <a
+              key={i}
+              href={part.startsWith("http") ? part : `https://${part}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium underline underline-offset-2 hover:text-white dark:text-sky-400 dark:hover:text-sky-300"
+            >
+              {part}
+            </a>
+          ) : (
+            part
+          )
+        )}
+      </p>
       <div className="flex justify-evenly text-sky-800 dark:text-sky-400">
         <div className="flex items-center gap-2">
           <RetweetIcon className="h-4 w-4" />

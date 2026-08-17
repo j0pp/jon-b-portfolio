@@ -1,12 +1,11 @@
 import NytCard from "@/components/resume/NytCard";
 import SlackCard from "@/components/resume/SlackCard";
 import TwitterCard from "@/components/resume/TwitterCard";
-import { resumeCards } from "@/data/content";
 
 /** Static staggered collage of the fake-brand resume cards. */
 export default function CardCollage() {
   return (
-    <section className="mt-12">
+    <section className="mt-16">
       <div className="flex flex-col items-center gap-6 sm:block">
         <div className="sm:w-fit sm:-rotate-2">
           <NytCard />
@@ -18,9 +17,6 @@ export default function CardCollage() {
           <TwitterCard />
         </div>
       </div>
-      <p className="mt-6 text-center text-xs text-zinc-400 dark:text-zinc-500">
-        {resumeCards.disclaimer}
-      </p>
     </section>
   );
 }

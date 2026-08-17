@@ -24,8 +24,19 @@ export default function PreviewLink({
       <ExternalLink href={href} className={className}>
         {children}
       </ExternalLink>
-      <span className="pointer-events-none invisible absolute bottom-full left-0 z-20 mb-2 block w-80 opacity-0 transition-opacity duration-200 group-hover/preview:visible group-hover/preview:opacity-100">
-        <BrowserPreview url={href} poster={poster} alt={alt} zoom={4} />
+      {/* pb-2 (not margin) keeps the hover area contiguous, so the card
+          stays open while the cursor moves from the link onto it. */}
+      <span className="invisible absolute bottom-full left-0 z-20 block w-80 pb-2 opacity-0 transition-opacity duration-200 group-hover/preview:visible group-hover/preview:opacity-100">
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block"
+          tabIndex={-1}
+          aria-hidden
+        >
+          <BrowserPreview url={href} poster={poster} alt={alt} zoom={4} />
+        </a>
       </span>
     </span>
   );

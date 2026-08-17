@@ -36,6 +36,8 @@ export type Experience = {
   company: string;
   url?: string;
   blurb?: string;
+  /** Brand mark shown beside the company name (see CompanyLogo.tsx). */
+  logo?: "posh" | "uw";
   roles: Role[];
 };
 
@@ -43,6 +45,7 @@ export const experience: Experience[] = [
   {
     company: "Posh",
     url: "https://posh.vip",
+    logo: "posh",
     blurb:
       "Posh is a consumer event ticketing marketplace based in NYC. I joined as the 3rd engineering hire; the team has since scaled 7× to 22 engineers.",
     roles: [
@@ -61,6 +64,7 @@ export const experience: Experience[] = [
   {
     company: "University of Washington I.T.",
     url: "https://it.uw.edu",
+    logo: "uw",
     blurb:
       "As a student engineer I modernized the UW student portal with Vue/Vuex, expanded test coverage, and built asynchronous background job infrastructure.",
     roles: [
@@ -125,7 +129,6 @@ export type Project = {
   url?: string;
   description: string;
   icon: "riff" | "trio" | "djd";
-  video?: string;
   /** Show a live browser-style preview (an iframe of `url`) when hovering the project link. */
   livePreview?: boolean;
   /** Optional poster screenshot shown only while the live preview loads. */
@@ -155,13 +158,11 @@ export const projects: Project[] = [
     description:
       "Collaborative queueing for parties — built with Vue 3, the Spotify Web API, Express, and Socket.IO on Postgres.",
     icon: "djd",
-    video: "/videos/dj-democracy.mp4",
   },
 ];
 
-/** Copy for the fake-brand widget cards on the /resume page. */
+/** Copy for the fake-brand widget cards on the home page. */
 export const resumeCards = {
-  disclaimer: "I am in no way associated with these companies.",
   nyt: {
     masthead: "NYT Top Stories",
     kicker: "LIVE",
