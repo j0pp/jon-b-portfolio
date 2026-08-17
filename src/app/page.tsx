@@ -2,6 +2,7 @@ import Link from "next/link";
 import Section from "@/components/Section";
 import ExternalLink from "@/components/ExternalLink";
 import CardCollage from "@/components/resume/CardCollage";
+import CompanyLogo from "@/components/CompanyLogo";
 import PreviewLink from "@/components/PreviewLink";
 import { DownloadIcon, DJDIcon, RiffIcon, TrioIcon } from "@/components/icons";
 import { bio, education, experience, projects, site, skills } from "@/data/content";
@@ -58,7 +59,8 @@ export default function HomePage() {
         <div className="flex flex-col gap-10">
           {experience.map((job) => (
             <div key={job.company}>
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+              <h3 className="flex items-center gap-2 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                {job.logo && <CompanyLogo logo={job.logo} />}
                 {job.url ? (
                   <ExternalLink href={job.url} className="!text-inherit hover:!text-teal-700 dark:hover:!text-teal-400">
                     {job.company}

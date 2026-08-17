@@ -36,6 +36,8 @@ export type Experience = {
   company: string;
   url?: string;
   blurb?: string;
+  /** Brand mark shown beside the company name (see CompanyLogo.tsx). */
+  logo?: "posh" | "uw";
   roles: Role[];
 };
 
@@ -43,6 +45,7 @@ export const experience: Experience[] = [
   {
     company: "Posh",
     url: "https://posh.vip",
+    logo: "posh",
     blurb:
       "Posh is a consumer event ticketing marketplace based in NYC. I joined as the 3rd engineering hire; the team has since scaled 7× to 22 engineers.",
     roles: [
@@ -61,6 +64,7 @@ export const experience: Experience[] = [
   {
     company: "University of Washington I.T.",
     url: "https://it.uw.edu",
+    logo: "uw",
     blurb:
       "As a student engineer I modernized the UW student portal with Vue/Vuex, expanded test coverage, and built asynchronous background job infrastructure.",
     roles: [
