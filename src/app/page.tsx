@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Section from "@/components/Section";
 import ExternalLink from "@/components/ExternalLink";
 import CardCollage from "@/components/resume/CardCollage";
@@ -106,7 +105,7 @@ export default function HomePage() {
             const Icon = projectIcons[project.icon];
             return (
               <div key={project.name} className="flex gap-4">
-                <Icon className="h-10 w-10 shrink-0 text-teal-700 dark:text-teal-400" />
+                <Icon className="h-10 w-10 shrink-0 text-zinc-900 dark:text-zinc-100" />
                 <div>
                   <h3 className="font-medium text-zinc-900 dark:text-zinc-100">
                     {project.url && project.livePreview ? (
@@ -127,15 +126,7 @@ export default function HomePage() {
                     )}
                   </h3>
                   <p className="mt-1 text-sm leading-relaxed">
-                    {project.description}{" "}
-                    {project.video && (
-                      <Link
-                        href="/projects"
-                        className="text-teal-700 hover:text-teal-500 dark:text-teal-400 dark:hover:text-teal-300"
-                      >
-                        Watch the demo →
-                      </Link>
-                    )}
+                    {project.description}
                   </p>
                 </div>
               </div>

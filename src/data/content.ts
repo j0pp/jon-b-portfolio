@@ -129,7 +129,6 @@ export type Project = {
   url?: string;
   description: string;
   icon: "riff" | "trio" | "djd";
-  video?: string;
   /** Show a live browser-style preview (an iframe of `url`) when hovering the project link. */
   livePreview?: boolean;
   /** Optional poster screenshot shown only while the live preview loads. */
@@ -159,7 +158,6 @@ export const projects: Project[] = [
     description:
       "Collaborative queueing for parties — built with Vue 3, the Spotify Web API, Express, and Socket.IO on Postgres.",
     icon: "djd",
-    video: "/videos/dj-democracy.mp4",
   },
 ];
 

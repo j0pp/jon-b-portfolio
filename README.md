@@ -25,7 +25,7 @@ npm run lint     # eslint
 
 ## Structure
 
-- `src/app/` — routes (`/`, `/projects`), layout, `sitemap.ts`, `robots.ts`
+- `src/app/` — the single-page route, layout, `sitemap.ts`, `robots.ts`
 - `src/components/` — UI components; `resume/` holds the fake-brand resume cards shown on the home page
 - `src/data/content.ts` — all site copy
-- `public/` — resume PDF, images, fonts, video
+- `public/` — resume PDF, images, fonts
