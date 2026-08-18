@@ -13,19 +13,31 @@ const projectIcons = {
 };
 
 function PersonJsonLd() {
+  const [locality, region] = site.location.split(", ");
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: site.name,
     jobTitle: site.role,
+    description: site.description,
     url: site.url,
+    image: new URL("/images/headshot.png", site.url).toString(),
     email: `mailto:${site.socials.email}`,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Brooklyn",
-      addressRegion: "NY",
+      addressLocality: locality,
+      addressRegion: region,
     },
-    alumniOf: education.school,
+    worksFor: {
+      "@type": "Organization",
+      name: experience[0].company,
+      url: experience[0].url,
+    },
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: education.school,
+    },
+    knowsAbout: skills.flatMap((skill) => skill.items),
     sameAs: [site.socials.github, site.socials.linkedin],
   };
   return (
@@ -42,9 +54,9 @@ export default function HomePage() {
       <PersonJsonLd />
 
       <section>
-        <h1 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
+        <p className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
           {bio.greeting}
-        </h1>
+        </p>
         {bio.paragraphs.map((paragraph) => (
           <p key={paragraph} className="mt-4 leading-relaxed">
             {paragraph}
@@ -97,6 +109,27 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </Section>
+
+      <Section title="Education">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+          <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+            {education.school}
+          </h3>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+            {education.graduated}
+          </p>
+        </div>
+        <p className="mt-1 font-medium text-zinc-900 dark:text-zinc-100">
+          {education.degree}
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+          {education.detail} Applied math portfolio at{" "}
+          <ExternalLink href={education.portfolioUrl}>
+            {education.portfolioUrl.replace("https://", "")}
+          </ExternalLink>
+          .
+        </p>
       </Section>
 
       <Section title="Skills">

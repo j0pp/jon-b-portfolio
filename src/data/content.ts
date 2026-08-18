@@ -81,8 +81,7 @@ export const education = {
   school: "University of Washington",
   degree: "B.S., Applied & Computational Mathematical Sciences",
   graduated: "August 2022",
-  detail:
-    "Concentration in Scientific Computing & Numerical Algorithms. Applied math portfolio at github.com/j0pp/AMATH-Papers.",
+  detail: "Concentration in Scientific Computing & Numerical Algorithms.",
   portfolioUrl: "https://github.com/j0pp/AMATH-Papers",
 };
 

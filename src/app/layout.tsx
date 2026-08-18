@@ -14,6 +14,11 @@ export const metadata: Metadata = {
     template: `%s · ${site.name}`,
   },
   description: site.description,
+  alternates: {
+    canonical: "/",
+  },
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
   openGraph: {
     title: site.title,
     description: site.description,
@@ -23,7 +28,7 @@ export const metadata: Metadata = {
     locale: "en_US",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: site.title,
     description: site.description,
   },
