@@ -17,12 +17,20 @@ export default function CompanyLogo({ logo }: { logo: CompanyLogoId }) {
           <img
             src="/images/logos/posh-black.png"
             alt=""
-            className="mt-1 w-11 dark:hidden"
+            width={418}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            className="mt-1 h-auto w-11 dark:hidden"
           />
           <img
             src="/images/logos/posh-white.png"
             alt=""
-            className="mt-1 hidden w-11 dark:block"
+            width={418}
+            height={120}
+            loading="lazy"
+            decoding="async"
+            className="mt-1 hidden h-auto w-11 dark:block"
           />
         </>
       )}

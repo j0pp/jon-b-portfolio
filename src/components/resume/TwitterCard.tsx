@@ -20,7 +20,15 @@ export default function TwitterCard() {
         <span>{heading}</span>
       </h3>
       <div className="mb-2 flex items-center gap-2">
-        <img src={avatar} alt={author} className="h-12 w-12 rounded-full" />
+        <img
+          src={avatar}
+          alt={author}
+          width={48}
+          height={48}
+          loading="lazy"
+          decoding="async"
+          className="h-12 w-12 rounded-full"
+        />
         <div>
           <p className="font-bold">{author}</p>
           <p className="text-sm text-sky-100 dark:text-zinc-400">{handle}</p>

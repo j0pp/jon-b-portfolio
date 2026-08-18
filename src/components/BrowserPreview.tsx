@@ -37,6 +37,10 @@ export default function BrowserPreview({
           <img
             src={poster}
             alt={alt}
+            width={1280}
+            height={800}
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover"
           />
         )}
