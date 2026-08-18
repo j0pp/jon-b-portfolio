@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  useCallback,
   useEffect,
   useLayoutEffect,
   useRef,
@@ -8,11 +9,34 @@ import {
   type CSSProperties,
   type ReactNode,
 } from "react";
+import dynamic from "next/dynamic";
 import { useTheme } from "next-themes";
 
 type VhsModule = typeof import("@/components/canvasui/VHS");
 
-const BURST = {
+export type BurstConfig = {
+  holdMs: number;
+  durationMs: number;
+  peak: {
+    speed: number;
+    wave: number;
+    jitter: number;
+    crease: number;
+    switching: number;
+    switchingHeight: number;
+    bloom: number;
+    aberration: number;
+    acBeat: number;
+    grain: number;
+    scanlines: number;
+    vignette: number;
+    barrel: number;
+    saturation: number;
+    exposure: number;
+  };
+};
+
+const BURST: BurstConfig = {
   holdMs: 400,
   durationMs: 1200,
   peak: {
@@ -21,14 +45,24 @@ const BURST = {
     jitter: 1.5,
     crease: 1.2,
     switching: 1.5,
-    switchingHeight: 0.06,
+    switchingHeight: 0,
     bloom: 0.6,
     aberration: 6,
     acBeat: 1.5,
     grain: 0.35,
     scanlines: 0.35,
+    vignette: 0,
+    barrel: 0,
+    saturation: 1,
+    exposure: 1,
   },
 };
+
+const isDev = process.env.NODE_ENV === "development";
+
+const VhsDevControls = isDev
+  ? dynamic(() => import("@/components/VhsDevControls"), { ssr: false })
+  : null;
 
 let modulePromise: Promise<VhsModule> | null = null;
 
@@ -37,8 +71,7 @@ function loadVhs() {
   return modulePromise;
 }
 
-function scaledOptions(env: number) {
-  const { peak } = BURST;
+function scaledOptions(peak: BurstConfig["peak"], env: number) {
   return {
     speed: peak.speed,
     wave: peak.wave * env,
@@ -51,6 +84,10 @@ function scaledOptions(env: number) {
     acBeat: peak.acBeat * env,
     grain: peak.grain * env,
     scanlines: peak.scanlines * env,
+    vignette: peak.vignette * env,
+    barrel: peak.barrel * env,
+    saturation: 1 + (peak.saturation - 1) * env,
+    exposure: 1 + (peak.exposure - 1) * env,
   };
 }
 
@@ -65,11 +102,31 @@ export default function VhsBurst({ children }: { children: ReactNode }) {
   const prevThemeRef = useRef<string | null>(null);
   const startRef = useRef(0);
   const scrollYRef = useRef(0);
+  const activeRef = useRef(false);
   const hostRef = useRef<HTMLDivElement>(null);
   const [mod, setMod] = useState<VhsModule | null>(null);
   const [native, setNative] = useState(false);
   const [active, setActive] = useState(false);
+  const [pinned, setPinned] = useState(false);
   const [env, setEnv] = useState(1);
+  const [cfg, setCfg] = useState(BURST);
+
+  const startBurst = useCallback(() => {
+    loadVhs().then((loaded) => {
+      setMod(loaded);
+      setNative(loaded.supportsHtmlInCanvas());
+      if (!activeRef.current) scrollYRef.current = window.scrollY;
+      activeRef.current = true;
+      startRef.current = performance.now();
+      setEnv(1);
+      setActive(true);
+    });
+  }, []);
+
+  const stopBurst = useCallback(() => {
+    activeRef.current = false;
+    setActive(false);
+  }, []);
 
   useEffect(() => {
     if (!resolvedTheme) return;
@@ -80,64 +137,89 @@ export default function VhsBurst({ children }: { children: ReactNode }) {
     if (prevThemeRef.current === resolvedTheme) return;
     prevThemeRef.current = resolvedTheme;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let cancelled = false;
-    loadVhs().then((loaded) => {
-      if (cancelled) return;
-      setMod(loaded);
-      setNative(loaded.supportsHtmlInCanvas());
-      scrollYRef.current = window.scrollY;
-      startRef.current = performance.now();
-      setEnv(1);
-      setActive(true);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [resolvedTheme]);
+    startBurst();
+  }, [resolvedTheme, startBurst]);
 
   useEffect(() => {
-    if (!active) return;
+    if (!active || pinned) return;
     let raf = requestAnimationFrame(function tick(now) {
       const elapsed = now - startRef.current;
-      if (elapsed >= BURST.durationMs) {
+      if (elapsed >= cfg.durationMs) {
+        activeRef.current = false;
         setActive(false);
         return;
       }
       const u =
-        elapsed <= BURST.holdMs
+        elapsed <= cfg.holdMs
           ? 0
-          : (elapsed - BURST.holdMs) / (BURST.durationMs - BURST.holdMs);
+          : (elapsed - cfg.holdMs) / (cfg.durationMs - cfg.holdMs);
       setEnv(1 - u * u * (3 - 2 * u));
       raf = requestAnimationFrame(tick);
     });
     return () => cancelAnimationFrame(raf);
-  }, [active]);
+  }, [active, pinned, cfg]);
 
   useLayoutEffect(() => {
     if (!active || !native) return;
     const content = hostRef.current?.querySelector("[data-vhs-content]");
-    if (content instanceof HTMLElement) content.scrollTop = scrollYRef.current;
+    let removeListener = () => {};
+    if (content instanceof HTMLElement) {
+      content.scrollTop = scrollYRef.current;
+      const onScroll = () => {
+        scrollYRef.current = content.scrollTop;
+      };
+      content.addEventListener("scroll", onScroll, { passive: true });
+      removeListener = () =>
+        content.removeEventListener("scroll", onScroll);
+    }
     return () => {
-      const y =
-        content instanceof HTMLElement ? content.scrollTop : scrollYRef.current;
-      window.scrollTo(0, y);
+      removeListener();
+      const y = scrollYRef.current;
+      requestAnimationFrame(() => window.scrollTo(0, y));
     };
   }, [active, native]);
 
+  const panel = VhsDevControls ? (
+    <VhsDevControls
+      cfg={cfg}
+      pinned={pinned}
+      onChange={setCfg}
+      onBurst={startBurst}
+      onPinToggle={(next: boolean) => {
+        setPinned(next);
+        if (next) {
+          setEnv(1);
+          startBurst();
+        } else {
+          stopBurst();
+        }
+      }}
+      onReset={() => setCfg(BURST)}
+    />
+  ) : null;
+
   if (!active || !mod) {
-    return <>{children}</>;
+    return (
+      <>
+        {children}
+        {panel}
+      </>
+    );
   }
 
   const Vhs = mod.VHS;
-  const options = scaledOptions(env);
+  const options = scaledOptions(cfg.peak, pinned ? 1 : env);
 
   if (native) {
     return (
-      <div ref={hostRef} style={overlayStyle}>
-        <Vhs {...options} style={{ position: "absolute", inset: 0 }}>
-          {children}
-        </Vhs>
-      </div>
+      <>
+        <div ref={hostRef} style={overlayStyle}>
+          <Vhs {...options} style={{ position: "absolute", inset: 0 }}>
+            {children}
+          </Vhs>
+        </div>
+        {panel}
+      </>
     );
   }
 
@@ -149,6 +231,7 @@ export default function VhsBurst({ children }: { children: ReactNode }) {
           {null}
         </Vhs>
       </div>
+      {panel}
     </>
   );
 }
