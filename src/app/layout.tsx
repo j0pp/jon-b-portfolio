@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Script from "next/script";
 import { ThemeProvider } from "next-themes";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -50,6 +51,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <Footer />
           </div>
         </ThemeProvider>
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="3c0fc7e3-f5f3-4d8c-8c19-89580371bb1c"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

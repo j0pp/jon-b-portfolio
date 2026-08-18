@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src https://posh.vip https://it.uw.edu https://playriff.tv https://*.netlify.app; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' https://cloud.umami.is; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloud.umami.is https://api-gateway.umami.dev; frame-src https://posh.vip https://it.uw.edu https://playriff.tv https://*.netlify.app; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'",
           },
         ],
       },

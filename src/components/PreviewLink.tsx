@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ExternalLink from "@/components/ExternalLink";
 import BrowserPreview from "@/components/BrowserPreview";
 import type { ReactNode } from "react";
+
+const WARM_EVENTS = ["pointermove", "pointerdown", "scroll", "keydown", "touchstart"] as const;
 
 export default function PreviewLink({
   href,
@@ -22,6 +24,21 @@ export default function PreviewLink({
 }) {
   const [warm, setWarm] = useState(false);
   const wake = () => setWarm(true);
+
+  useEffect(() => {
+    if (warm) return;
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    const onFirstInteraction = () => setWarm(true);
+    for (const event of WARM_EVENTS) {
+      window.addEventListener(event, onFirstInteraction, { once: true, passive: true });
+    }
+    return () => {
+      for (const event of WARM_EVENTS) {
+        window.removeEventListener(event, onFirstInteraction);
+      }
+    };
+  }, [warm]);
+
   return (
     <span
       className="group/preview relative inline-block"
