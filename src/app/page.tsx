@@ -3,13 +3,12 @@ import ExternalLink from "@/components/ExternalLink";
 import CardCollage from "@/components/resume/CardCollage";
 import CompanyLogo from "@/components/CompanyLogo";
 import PreviewLink from "@/components/PreviewLink";
-import { DownloadIcon, DJDIcon, RiffIcon, TrioIcon } from "@/components/icons";
+import { DownloadIcon, RiffIcon, TrioIcon } from "@/components/icons";
 import { bio, education, experience, projects, site, skills } from "@/data/content";
 
 const projectIcons = {
   riff: RiffIcon,
   trio: TrioIcon,
-  djd: DJDIcon,
 };
 
 function PersonJsonLd() {

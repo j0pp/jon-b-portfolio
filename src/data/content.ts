@@ -45,7 +45,7 @@ export const experience: Experience[] = [
     url: "https://posh.vip",
     logo: "posh",
     blurb:
-      "Posh is a consumer event ticketing marketplace based in NYC. I joined as the 3rd engineering hire; the team has since scaled 7× to 22 engineers.",
+      "Consumer event ticketing marketplace (posh.vip, NYC) · 3rd engineering hire, seed through $37M Series B · accounts grew from 1M to 10M and lifetime GMV from $30M to $350M+ during tenure",
     roles: [
       {
         title: "Senior Software Engineer, Full Stack",
@@ -125,7 +125,7 @@ export type Project = {
   name: string;
   url?: string;
   description: string;
-  icon: "riff" | "trio" | "djd";
+  icon: "riff" | "trio";
   preview?: string;
 };
 
@@ -145,12 +145,6 @@ export const projects: Project[] = [
       "A Wordle-style word game and one of my first React projects, built way back in 2022.",
     icon: "trio",
   },
-  {
-    name: "DJ Democracy",
-    description:
-      "Collaborative queueing for parties, built with Vue 3, the Spotify Web API, Express, and Socket.IO on Postgres.",
-    icon: "djd",
-  },
 ];
 
 export const resumeCards = {
@@ -158,7 +152,7 @@ export const resumeCards = {
     masthead: "NYT Top Stories",
     kicker: "LIVE",
     headline:
-      "Jonathan Beaubien is a senior full-stack engineer with 3+ years of experience shipping consumer products.",
+      "Jonathan Beaubien is a senior full-stack engineer shipping consumer products.",
     body: "He holds a B.S. in Applied and Computational Mathematical Sciences from the University of Washington and was the 3rd engineering hire at Posh, an NYC startup, where he leads projects across web, native, and cloud infrastructure.",
   },
   slack: {
