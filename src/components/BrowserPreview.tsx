@@ -1,26 +1,14 @@
-/* eslint-disable @next/next/no-img-element */
-
-/**
- * A live, miniaturized embed of the target site framed in minimal browser
- * chrome, like a tab-hover preview. The real page renders in an iframe
- * sized to `zoom`× the container and scaled back down by 1/`zoom`, so the
- * preview is always current — no screenshots to maintain. An optional
- * poster image shows underneath while the iframe loads.
- *
- * Pick `zoom` so container-width × zoom ≈ 1280 (a desktop viewport).
- */
 export default function BrowserPreview({
   url,
   alt,
   poster,
-  zoom = 2,
+  zoom,
 }: {
   url: string;
   alt: string;
   poster?: string;
-  zoom?: number;
+  zoom: number;
 }) {
-  // Strip Netlify deploy-permalink hashes (e.g. "636876cd...--site.netlify.app").
   const host = new URL(url).host.replace(/^[0-9a-f]{24}--/, "");
   return (
     <div className="overflow-hidden rounded-lg border border-zinc-200 bg-white shadow-xl dark:border-zinc-700 dark:bg-zinc-900">
@@ -51,6 +39,8 @@ export default function BrowserPreview({
           tabIndex={-1}
           aria-hidden
           scrolling="no"
+          referrerPolicy="no-referrer"
+          sandbox="allow-scripts allow-same-origin"
           className="pointer-events-none absolute top-0 left-0 origin-top-left select-none border-0"
           style={{
             width: `${zoom * 100}%`,

@@ -1,6 +1,12 @@
 import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
 import { site } from "@/data/content";
 
+const links = [
+  { href: site.socials.github, label: "GitHub", Icon: GitHubIcon },
+  { href: site.socials.linkedin, label: "LinkedIn", Icon: LinkedInIcon },
+  { href: `mailto:${site.socials.email}`, label: "Email", Icon: MailIcon },
+];
+
 export default function Footer() {
   return (
     <footer className="flex items-center justify-between border-t border-zinc-200 py-8 text-sm text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
@@ -8,31 +14,19 @@ export default function Footer() {
         © {new Date().getFullYear()} {site.name}
       </p>
       <div className="flex items-center gap-5">
-        <a
-          href={site.socials.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          className="transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-        >
-          <GitHubIcon className="h-5 w-5" />
-        </a>
-        <a
-          href={site.socials.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className="transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-        >
-          <LinkedInIcon className="h-5 w-5" />
-        </a>
-        <a
-          href={`mailto:${site.socials.email}`}
-          aria-label="Email"
-          className="transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
-        >
-          <MailIcon className="h-5 w-5" />
-        </a>
+        {links.map(({ href, label, Icon }) => (
+          <a
+            key={label}
+            href={href}
+            aria-label={label}
+            className="transition-colors hover:text-zinc-900 dark:hover:text-zinc-100"
+            {...(href.startsWith("mailto:")
+              ? {}
+              : { target: "_blank", rel: "noopener noreferrer" })}
+          >
+            <Icon className="h-5 w-5" />
+          </a>
+        ))}
       </div>
     </footer>
   );

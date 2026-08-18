@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { resumeCards } from "@/data/content";
 
 export default function SlackCard() {
@@ -22,8 +21,8 @@ export default function SlackCard() {
         </span>
       </div>
       <div className="divide-y divide-zinc-200 px-3 py-1 dark:divide-zinc-800">
-        {messages.map((message) => (
-          <div key={message.text} className="flex items-center gap-2 py-2">
+        {messages.map((message, i) => (
+          <div key={i} className="flex items-center gap-2 py-2">
             <img
               src={message.avatar}
               alt={message.author}

@@ -57,8 +57,8 @@ export default function HomePage() {
         <p className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
           {bio.greeting}
         </p>
-        {bio.paragraphs.map((paragraph) => (
-          <p key={paragraph} className="mt-4 leading-relaxed">
+        {bio.paragraphs.map((paragraph, i) => (
+          <p key={i} className="mt-4 leading-relaxed">
             {paragraph}
           </p>
         ))}
@@ -74,11 +74,7 @@ export default function HomePage() {
               <div className="flex-1">
                 <h3 className="flex items-center text-lg font-semibold text-zinc-900 dark:text-zinc-100">
                   {job.url ? (
-                    <PreviewLink
-                      href={job.url}
-                      alt={`${job.company} website`}
-                      className="!text-inherit hover:!text-teal-700 dark:hover:!text-teal-400"
-                    >
+                    <PreviewLink href={job.url} alt={`${job.company} website`} inherit>
                       {job.company}
                     </PreviewLink>
                   ) : (
@@ -154,19 +150,15 @@ export default function HomePage() {
                 <Icon className="h-10 w-10 shrink-0 text-zinc-900 dark:text-zinc-100" />
                 <div>
                   <h3 className="font-medium text-zinc-900 dark:text-zinc-100">
-                    {project.url && project.livePreview ? (
+                    {project.url ? (
                       <PreviewLink
                         href={project.url}
                         poster={project.preview}
                         alt={`${project.name} landing page`}
-                        className="!text-inherit hover:!text-teal-700 dark:hover:!text-teal-400"
+                        inherit
                       >
                         {project.name}
                       </PreviewLink>
-                    ) : project.url ? (
-                      <ExternalLink href={project.url} className="!text-inherit hover:!text-teal-700 dark:hover:!text-teal-400">
-                        {project.name}
-                      </ExternalLink>
                     ) : (
                       project.name
                     )}

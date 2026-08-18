@@ -1,6 +1,5 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import { HeartIcon, RetweetIcon } from "@/components/icons";
 import { resumeCards } from "@/data/content";
@@ -10,7 +9,6 @@ export default function TwitterCard() {
     resumeCards.twitter;
   const [isLiked, setIsLiked] = useState(false);
 
-  // Linkify bare domains/URLs in the tweet text (e.g. "playriff.tv").
   const tweetParts = tweet.split(/(\bhttps?:\/\/\S+|\b[\w-]+(?:\.[\w-]+)*\.[a-z]{2,}(?:\/\S*)?)/gi);
 
   return (

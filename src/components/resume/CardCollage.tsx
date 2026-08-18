@@ -2,7 +2,6 @@ import NytCard from "@/components/resume/NytCard";
 import SlackCard from "@/components/resume/SlackCard";
 import TwitterCard from "@/components/resume/TwitterCard";
 
-/** Static staggered collage of the fake-brand resume cards. */
 export default function CardCollage() {
   return (
     <section className="mt-16">

@@ -1,7 +1,6 @@
-/**
- * All site copy lives in this file. Edit the text here and every page
- * (home, projects, resume widgets, SEO metadata) picks it up.
- */
+import type { CompanyLogoId } from "@/components/CompanyLogo";
+
+const headshot = "/images/headshot.png";
 
 export const site = {
   name: "Jonathan Beaubien",
@@ -22,7 +21,7 @@ export const site = {
 export const bio = {
   greeting: "Hey! 👋",
   paragraphs: [
-    "My name is Jonathan Beaubien and I'm a senior full-stack engineer based in Brooklyn, NY. I build consumer products end-to-end — web, mobile, and the infrastructure behind them.",
+    "My name is Jonathan Beaubien and I'm a senior full-stack engineer based in Brooklyn, NY. I build consumer products end-to-end: web, mobile, and the infrastructure behind them.",
   ],
 };
 
@@ -36,8 +35,7 @@ export type Experience = {
   company: string;
   url?: string;
   blurb?: string;
-  /** Brand mark shown beside the company name (see CompanyLogo.tsx). */
-  logo?: "posh" | "uw";
+  logo?: CompanyLogoId;
   roles: Role[];
 };
 
@@ -128,9 +126,6 @@ export type Project = {
   url?: string;
   description: string;
   icon: "riff" | "trio" | "djd";
-  /** Show a live browser-style preview (an iframe of `url`) when hovering the project link. */
-  livePreview?: boolean;
-  /** Optional poster screenshot shown only while the live preview loads. */
   preview?: string;
 };
 
@@ -141,7 +136,6 @@ export const projects: Project[] = [
     description:
       "A Jackbox-style party game: your TV is the shared screen and everyone plays from their phones. React + TypeScript on Cloudflare Durable Objects.",
     icon: "riff",
-    livePreview: true,
     preview: "/images/projects/riff.png",
   },
   {
@@ -150,17 +144,15 @@ export const projects: Project[] = [
     description:
       "A Wordle-style word game and one of my first React projects, built way back in 2022. Over 2,000 people played it. It's showing its age, but it's still up.",
     icon: "trio",
-    livePreview: true,
   },
   {
     name: "DJ Democracy",
     description:
-      "Collaborative queueing for parties — built with Vue 3, the Spotify Web API, Express, and Socket.IO on Postgres.",
+      "Collaborative queueing for parties, built with Vue 3, the Spotify Web API, Express, and Socket.IO on Postgres.",
     icon: "djd",
   },
 ];
 
-/** Copy for the fake-brand widget cards on the home page. */
 export const resumeCards = {
   nyt: {
     masthead: "NYT Top Stories",
@@ -172,10 +164,10 @@ export const resumeCards = {
   slack: {
     channel: "Latest",
     messages: [
-      { text: "I have experience using TypeScript, Next.js, and React,", author: "Jonathan Beaubien", avatar: "/images/headshot.png" },
-      { text: "building mobile apps with React Native,", author: "Jonathan Beaubien", avatar: "/images/headshot.png" },
-      { text: "developing backends in tRPC and NestJS,", author: "Jonathan Beaubien", avatar: "/images/headshot.png" },
-      { text: "and using AWS and MongoDB.", author: "Jonathan Beaubien", avatar: "/images/headshot.png" },
+      { text: "I have experience using TypeScript, Next.js, and React,", author: "Jonathan Beaubien", avatar: headshot },
+      { text: "building mobile apps with React Native,", author: "Jonathan Beaubien", avatar: headshot },
+      { text: "developing backends in tRPC and NestJS,", author: "Jonathan Beaubien", avatar: headshot },
+      { text: "and using AWS and MongoDB.", author: "Jonathan Beaubien", avatar: headshot },
       { text: "OMG DID YOU SEE BRIAN'S HAT?", author: "Brie", avatar: "/images/brie.png" },
       { text: "It's illegal for you to ask me that.", author: "Brian", avatar: "/images/brian.png" },
     ],
@@ -184,7 +176,7 @@ export const resumeCards = {
     heading: "Latest Tweets",
     author: "Jonathan Beaubien",
     handle: "@jon",
-    avatar: "/images/headshot.png",
+    avatar: headshot,
     tweet:
       "riff on your favorite inside jokes — riff is a party game for 3–8 players where everyone joins on their phone, built on Cloudflare Durable Objects. playriff.tv",
     retweets: "102",

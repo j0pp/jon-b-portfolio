@@ -5,6 +5,11 @@ import typescript from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...coreWebVitals,
   ...typescript,
+  {
+    rules: {
+      "@next/next/no-img-element": "off",
+    },
+  },
   globalIgnores([".next/**", "out/**", "node_modules/**", "next-env.d.ts"]),
 ]);
 

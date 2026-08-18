@@ -8,7 +8,6 @@ const emptySubscribe = () => () => {};
 
 export default function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  // true after hydration, false during SSR — keeps the icon stable across hydration
   const mounted = useSyncExternalStore(
     emptySubscribe,
     () => true,

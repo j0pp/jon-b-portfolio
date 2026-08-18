@@ -91,7 +91,6 @@ export function HeartIcon(props: IconProps) {
   );
 }
 
-/** University of Washington Block W (official path from UW's web theme). */
 export function UWBlockWIcon(props: IconProps) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51.955 34.933" fill="currentColor" {...props}>
