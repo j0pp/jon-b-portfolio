@@ -12,11 +12,11 @@ export default function TwitterCard() {
   const tweetParts = tweet.split(/(\bhttps?:\/\/\S+|\b[\w-]+(?:\.[\w-]+)*\.[a-z]{2,}(?:\/\S*)?)/gi);
 
   return (
-    <div className="w-72 rounded-xl border border-sky-500 bg-sky-400 px-4 py-3 text-slate-50 shadow-xl sm:w-80 dark:border-zinc-800 dark:bg-gray-900">
-      <h3 className="mb-2 flex items-center gap-1.5 text-sm dark:text-sky-500">
+    <div className="w-72 rounded-xl border border-sky-600 bg-sky-700 px-4 py-3 text-slate-50 shadow-xl sm:w-80 dark:border-zinc-800 dark:bg-gray-900">
+      <p className="mb-2 flex items-center gap-1.5 text-sm dark:text-sky-500">
         <span className="text-xl font-bold">#</span>
         <span>{heading}</span>
-      </h3>
+      </p>
       <div className="mb-2 flex items-center gap-2">
         <img
           src={avatar}
@@ -49,7 +49,7 @@ export default function TwitterCard() {
           )
         )}
       </p>
-      <div className="flex justify-evenly text-sky-800 dark:text-sky-400">
+      <div className="flex justify-evenly text-sky-100 dark:text-sky-400">
         <div className="flex items-center gap-2">
           <RetweetIcon className="h-4 w-4" />
           <span>{retweets}</span>
