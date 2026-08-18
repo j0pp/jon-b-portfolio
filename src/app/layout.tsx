@@ -4,6 +4,7 @@ import Script from "next/script";
 import { ThemeProvider } from "next-themes";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import VhsBurst from "@/components/VhsBurst";
 import { site } from "@/data/content";
 import { cheltenham } from "./fonts";
 import "./globals.css";
@@ -45,11 +46,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           enableSystem
           disableTransitionOnChange
         >
-          <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-6">
-            <Header />
-            <main className="grow py-12">{children}</main>
-            <Footer />
-          </div>
+          <VhsBurst>
+            <div className="mx-auto flex min-h-screen w-full max-w-2xl flex-col px-6">
+              <Header />
+              <main className="grow py-12">{children}</main>
+              <Footer />
+            </div>
+          </VhsBurst>
         </ThemeProvider>
         <Script
           src="https://cloud.umami.is/script.js"

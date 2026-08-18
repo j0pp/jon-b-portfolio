@@ -1,11 +1,16 @@
 import type { NextConfig } from "next";
 
+const originTrialToken = process.env.HTML_IN_CANVAS_OT_TOKEN;
+
 const nextConfig: NextConfig = {
   async headers() {
     return [
       {
         source: "/:path*",
         headers: [
+          ...(originTrialToken
+            ? [{ key: "Origin-Trial", value: originTrialToken }]
+            : []),
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           {

@@ -119,11 +119,8 @@ export default function HomePage() {
           {education.degree}
         </p>
         <p className="mt-3 text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
-          {education.detail} Applied math portfolio at{" "}
-          <ExternalLink href={education.portfolioUrl}>
-            {education.portfolioUrl.replace("https://", "")}
-          </ExternalLink>
-          .
+          {education.detail} Applied math portfolio{" "}
+          <ExternalLink href={education.portfolioUrl}>here</ExternalLink>.
         </p>
       </Section>
 
