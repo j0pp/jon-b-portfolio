@@ -21,7 +21,7 @@ export const site = {
 export const bio = {
   greeting: "Hey! 👋",
   paragraphs: [
-    "My name is Jonathan Beaubien and I'm a senior full-stack engineer based in Brooklyn, NY. I build consumer products end-to-end: web, mobile, and the infrastructure behind them.",
+    "My name is Jonathan Beaubien and I'm a senior full-stack engineer based in Brooklyn, NY. I've built consumer products end-to-end: web, mobile, backend, and the infrastructure behind them.",
   ],
 };
 
@@ -142,7 +142,7 @@ export const projects: Project[] = [
     name: "Word Trio",
     url: "https://636876cdc2c0040008d80bcf--word-trio.netlify.app/game",
     description:
-      "A Wordle-style word game and one of my first React projects, built way back in 2022. Over 2,000 people played it. It's showing its age, but it's still up.",
+      "A Wordle-style word game and one of my first React projects, built way back in 2022.",
     icon: "trio",
   },
   {
