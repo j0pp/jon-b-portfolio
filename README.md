@@ -1,6 +1,6 @@
 # jonbeaubien.dev
 
-Personal portfolio site for Jonathan Beaubien, built with [Next.js](https://nextjs.org) (App Router), React, TypeScript, and Tailwind CSS v4. All pages are statically generated so crawlers get full HTML. Deployed on Netlify; pushes to `main` auto-deploy.
+My personal portfolio site, built with [Next.js](https://nextjs.org) (App Router), React, TypeScript, and Tailwind CSS v4. All pages are statically generated so crawlers get full HTML. Deployed on Netlify; pushes to `main` auto-deploy.
 
 ## Editing content
 
