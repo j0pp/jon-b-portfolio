@@ -4,7 +4,7 @@ My personal portfolio site, built with [Next.js](https://nextjs.org) (App Router
 
 ## Editing content
 
-All site copy (bio, experience, projects, skills, resume widgets, SEO metadata) lives in one file: [`src/data/content.ts`](src/data/content.ts). Edit it and every page picks up the change.
+All site copy (bio, experience, projects, skills, resume widgets, SEO metadata) lives in one file: [`src/data/content.ts`](src/data/content.ts).
 
 The traditional resume PDF is served from `public/JonathanBeaubien_Resume.pdf`. Replace that file to update the download.
 
