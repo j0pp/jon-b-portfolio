@@ -36,7 +36,7 @@ export type BurstConfig = {
   };
 };
 
-export const BURST: BurstConfig = {
+const BURST: BurstConfig = {
   holdMs: 400,
   durationMs: 1200,
   peak: {
@@ -71,7 +71,7 @@ function loadVhs() {
   return modulePromise;
 }
 
-export function scaledOptions(peak: BurstConfig["peak"], env: number) {
+function scaledOptions(peak: BurstConfig["peak"], env: number) {
   return {
     speed: peak.speed,
     wave: peak.wave * env,

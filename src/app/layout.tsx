@@ -5,7 +5,6 @@ import { ThemeProvider } from "next-themes";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import VhsBurst from "@/components/VhsBurst";
-import DevTools from "@/components/DevTools";
 import { site } from "@/data/content";
 import { cheltenham } from "./fonts";
 import "./globals.css";
@@ -54,7 +53,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <Footer />
             </div>
           </VhsBurst>
-          <DevTools />
         </ThemeProvider>
         <Script
           src="https://cloud.umami.is/script.js"
