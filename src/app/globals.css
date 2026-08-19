@@ -35,14 +35,9 @@
   .preview-group:hover .preview-pop[data-anim="scale"] {
     transform: scale(1);
   }
-  .preview-pop[data-anim="crt"] {
-    transform-origin: 50% 100%;
-  }
-  .preview-pop[data-anim="crt"][data-placement="below"] {
-    transform-origin: 50% 0%;
-  }
-  .preview-group:hover .preview-pop[data-anim="crt"] {
-    animation: preview-crt 250ms cubic-bezier(0.22, 1, 0.36, 1);
+  .preview-pop[data-anim="vhs"],
+  .preview-pop[data-anim="glitch"] {
+    transition-duration: 80ms;
   }
   .preview-pop[data-anim="blur"] {
     transition: opacity 220ms ease-out, transform 220ms ease-out, filter 220ms ease-out;
@@ -64,19 +59,5 @@
   }
   .preview-group:hover .preview-pop[data-anim="tilt"] {
     transform: perspective(600px) rotateX(0deg);
-  }
-  @keyframes preview-crt {
-    0% {
-      transform: scaleY(0.05);
-      filter: brightness(2.2);
-    }
-    60% {
-      transform: scaleY(1.02);
-      filter: brightness(1.4);
-    }
-    100% {
-      transform: scaleY(1);
-      filter: brightness(1);
-    }
   }
 }

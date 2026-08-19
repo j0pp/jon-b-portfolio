@@ -1,4 +1,4 @@
-export const PREVIEW_ANIMS = ["lift", "scale", "crt", "blur", "tilt"] as const;
+export const PREVIEW_ANIMS = ["lift", "scale", "vhs", "glitch", "blur", "tilt"] as const;
 export type PreviewAnim = (typeof PREVIEW_ANIMS)[number];
 
 let current: PreviewAnim = "lift";

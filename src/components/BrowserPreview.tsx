@@ -3,11 +3,13 @@ export default function BrowserPreview({
   alt,
   poster,
   zoom,
+  live = true,
 }: {
   url: string;
   alt: string;
   poster?: string;
   zoom: number;
+  live?: boolean;
 }) {
   const host = new URL(url).host.replace(/^[0-9a-f]{24}--/, "");
   return (
@@ -32,22 +34,24 @@ export default function BrowserPreview({
             className="absolute inset-0 h-full w-full object-cover"
           />
         )}
-        <iframe
-          src={url}
-          title={alt}
-          loading="lazy"
-          tabIndex={-1}
-          aria-hidden
-          scrolling="no"
-          referrerPolicy="no-referrer"
-          sandbox="allow-scripts allow-same-origin"
-          className="pointer-events-none absolute top-0 left-0 origin-top-left select-none border-0"
-          style={{
-            width: `${zoom * 100}%`,
-            height: `${zoom * 100}%`,
-            transform: `scale(${1 / zoom})`,
-          }}
-        />
+        {live && (
+          <iframe
+            src={url}
+            title={alt}
+            loading="lazy"
+            tabIndex={-1}
+            aria-hidden
+            scrolling="no"
+            referrerPolicy="no-referrer"
+            sandbox="allow-scripts allow-same-origin"
+            className="pointer-events-none absolute top-0 left-0 origin-top-left select-none border-0"
+            style={{
+              width: `${zoom * 100}%`,
+              height: `${zoom * 100}%`,
+              transform: `scale(${1 / zoom})`,
+            }}
+          />
+        )}
       </div>
     </div>
   );

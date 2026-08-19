@@ -36,7 +36,7 @@ export type BurstConfig = {
   };
 };
 
-const BURST: BurstConfig = {
+export const BURST: BurstConfig = {
   holdMs: 400,
   durationMs: 1200,
   peak: {
@@ -46,14 +46,14 @@ const BURST: BurstConfig = {
     crease: 1.2,
     switching: 1.5,
     switchingHeight: 0,
-    bloom: 0.6,
+    bloom: 0,
     aberration: 6,
     acBeat: 1.5,
     grain: 0.35,
     scanlines: 0.35,
     vignette: 0,
     barrel: 0,
-    saturation: 1,
+    saturation: 0.15,
     exposure: 1,
   },
 };
@@ -71,7 +71,7 @@ function loadVhs() {
   return modulePromise;
 }
 
-function scaledOptions(peak: BurstConfig["peak"], env: number) {
+export function scaledOptions(peak: BurstConfig["peak"], env: number) {
   return {
     speed: peak.speed,
     wave: peak.wave * env,
