@@ -4,10 +4,10 @@ const headshot = "/images/headshot.png";
 
 export const site = {
   name: "Jonathan Beaubien",
-  role: "Senior Software Engineer",
-  title: "Jonathan Beaubien — Senior Software Engineer",
+  role: "Software Engineer",
+  title: "Jonathan Beaubien — Software Engineer",
   description:
-    "Jonathan Beaubien is a senior full-stack engineer in Brooklyn, NY building consumer products with TypeScript, Next.js, and React Native at Posh.",
+    "Jonathan Beaubien is a software engineer in Brooklyn, NY building the frontend of Tabs, an AI-native revenue platform. Previously the 3rd engineering hire at Posh.",
   url: "https://jonbeaubien.dev",
   location: "Brooklyn, NY",
   resumePdf: "/JonathanBeaubien_Resume.pdf",
@@ -21,7 +21,7 @@ export const site = {
 export const bio = {
   greeting: "Hey! 👋",
   paragraphs: [
-    "My name is Jonathan Beaubien and I'm a senior full-stack engineer based in Brooklyn, NY. I've built consumer products end-to-end: web, mobile, backend, and the infrastructure behind them.",
+    "My name is Jonathan Beaubien and I'm a full-stack engineer based in Brooklyn, NY. I've built consumer products end-to-end: web, mobile, backend, and the infrastructure behind them. These days I'm working on the frontend at Tabs.",
   ],
 };
 
@@ -41,6 +41,20 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
+    company: "Tabs",
+    url: "https://tabs.com",
+    logo: "tabs",
+    blurb:
+      "AI-native revenue platform automating billing, collections, and revenue recognition for finance teams (tabs.com, NYC) · Series B backed by Lightspeed and General Catalyst · 200+ customers including Cursor and LangChain",
+    roles: [
+      {
+        title: "Software Engineer, Frontend",
+        start: "October 2026",
+        end: "Present",
+      },
+    ],
+  },
+  {
     company: "Posh",
     url: "https://posh.vip",
     logo: "posh",
@@ -50,7 +64,7 @@ export const experience: Experience[] = [
       {
         title: "Senior Software Engineer, Full Stack",
         start: "January 2025",
-        end: "Present",
+        end: "September 2026",
       },
       {
         title: "Software Engineer, Full Stack",
@@ -152,8 +166,8 @@ export const resumeCards = {
     masthead: "NYT Top Stories",
     kicker: "LIVE",
     headline:
-      "Jonathan Beaubien is a senior full-stack engineer shipping consumer products.",
-    body: "He holds a B.S. in Applied and Computational Mathematical Sciences from the University of Washington and was the 3rd engineering hire at Posh, an NYC startup, where he leads projects across web, native, and cloud infrastructure.",
+      "Jonathan Beaubien joins Tabs as a frontend engineer.",
+    body: "He holds a B.S. in Applied and Computational Mathematical Sciences from the University of Washington and was the 3rd engineering hire at Posh, an NYC startup, where he led projects across web, native, and cloud infrastructure.",
   },
   slack: {
     channel: "Latest",
