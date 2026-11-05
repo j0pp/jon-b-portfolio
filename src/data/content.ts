@@ -45,7 +45,7 @@ export const experience: Experience[] = [
     url: "https://tabs.com",
     logo: "tabs",
     blurb:
-      "AI-native revenue platform automating billing, collections, and revenue recognition for finance teams (tabs.com, NYC) · Series B backed by Lightspeed and General Catalyst · 200+ customers including Cursor and LangChain",
+      "AI-native revenue platform automating billing, collections, and revenue recognition for finance teams (tabs.com, NYC) · Series B backed by Lightspeed and General Catalyst",
     roles: [
       {
         title: "Software Engineer, Frontend",
